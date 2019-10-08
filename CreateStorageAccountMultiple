@@ -1,0 +1,58 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+            "storageAccountName": {
+            "type": "string"
+        },
+         "count": {
+          "type": "int"   
+      },         
+        "accountType": {
+            "type": "string",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+                ]
+        },
+        "kind": {
+            "type": "string",
+            "allowedValues": [
+                "Storage",
+                "StorageV2",
+                "BlobStorage",
+                "FileStorage",
+                "BlockBlobStorage"                
+                ]
+
+        },
+        "supportsHttpsTrafficOnly": {
+            "type": "bool",
+            "defaultValue": "true"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "name": "[concat(parameters('storageAccountName'), copyIndex())]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+              "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+            },
+            "dependsOn": [],
+            "sku": {
+                "name": "[parameters('accountType')]"
+            },
+            "kind": "[parameters('kind')]",
+             "copy": {
+                 "name": "storagecopy",
+                 "count": "[parameters('count')]" 
+        }
+    }  
+    ],
+    "outputs": {}
+}
