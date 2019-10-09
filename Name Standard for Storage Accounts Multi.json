@@ -1,0 +1,31 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Storage/storageAccounts"
+        },
+        {
+          "not": {
+            "field": "name",
+            "match": "emrestr########"
+          }
+        },
+        {
+          "not": {
+            "field": "name",
+            "match":  "emrestr######??"
+          }
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }
+}
+
+
+ 
