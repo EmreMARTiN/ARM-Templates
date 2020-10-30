@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Alert-Name": {
+            "defaultValue": "Azure VM Deallocation Alert",
+            "type": "String"
+        },
+        "Actiongroups-External-Id": {
+            "defaultValue": "/subscriptions/XXXXX-XXXXX-XXXXX-XXXXX/resourceGroups/rg_azuredocslab/providers/microsoft.insights/actiongroups/myag01",
+            "type": "String"
+        },
+        "Subscription-Id": {
+            "defaultValue": "XXXXX-XXXXX-XXXXX-XXXXX",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/activityLogAlerts",
+            "apiVersion": "2017-04-01",
+            "name": "[parameters('Alert-Name')]",
+            "location": "Global",
+            "properties": {
+                "scopes": [
+                    "[concat('/subscriptions/', parameters('Subscription-Id'))]"
+                ],
+                "condition": {
+                    "allOf": [
+                        {
+                            "field": "category",
+                            "equals": "Administrative"
+                        },
+                        {
+                            "field": "resourceType",
+                            "equals": "microsoft.compute/virtualmachines"
+                        },
+                        {
+                            "field": "operationName",
+                            "equals": "Microsoft.Compute/virtualMachines/deallocate/action"
+                        }
+                    ]
+                },
+                "actions": {
+                    "actionGroups": [
+                        {
+                            "actionGroupId": "[parameters('Actiongroups-External-Id')]",
+                            "webhookProperties": {}
+                        }
+                    ]
+                },
+                "enabled": true
+            }
+        }
+    ]
+}
