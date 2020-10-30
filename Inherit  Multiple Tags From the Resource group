@@ -1,4 +1,4 @@
- {
+{
   "mode": "Indexed",
   "policyRule": {
     "if": {
@@ -34,8 +34,106 @@
         {
           "value": "[resourceGroup().tags[parameters('tagName4')]]",
           "notEquals": ""
-        },        
-                  
+        }               
+      ]
+    },
+    "then": {
+      "effect": "modify",
+      "details": {
+        "roleDefinitionIds": [
+          "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+          {
+            "operation": "addOrReplace",
+            "field": "[concat('tags[', parameters('tagName1'), ']')]",
+            "value": "[resourceGroup().tags[parameters('tagName1')]]"
+          },
+          {
+            "operation": "addOrReplace",
+            "field": "[concat('tags[', parameters('tagName2'), ']')]",
+            "value": "[resourceGroup().tags[parameters('tagName2')]]"
+          },
+          {
+            "operation": "addOrReplace",
+            "field": "[concat('tags[', parameters('tagName3'), ']')]",
+            "value": "[resourceGroup().tags[parameters('tagName3')]]"
+          },
+          {
+            "operation": "addOrReplace",
+            "field": "[concat('tags[', parameters('tagName4'), ']')]",
+            "value": "[resourceGroup().tags[parameters('tagName4')]]"
+          }                                
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "tagName1": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name",
+        "description": "Name of the tag, such as 'environment'"
+        }
+      },
+      "tagName2": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name2",
+        "description": "Name of the tag, such as 'environment'"
+       }
+    },
+      "tagName3": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name4",
+        "description": "Name of the tag, such as 'environment'"
+       }
+    },
+      "tagName4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name4",
+        "description": "Name of the tag, such as 'environment'"
+       }
+    }
+},
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "[concat('tags[', parameters('tagName1'), ']')]",
+          "notEquals": "[resourceGroup().tags[parameters('tagName1')]]"
+        },
+        {
+          "value": "[resourceGroup().tags[parameters('tagName1')]]",
+          "notEquals": ""
+        },
+        {
+          "field": "[concat('tags[', parameters('tagName2'), ']')]",
+          "notEquals": "[resourceGroup().tags[parameters('tagName2')]]"
+        },
+        {
+          "value": "[resourceGroup().tags[parameters('tagName2')]]",
+          "notEquals": ""
+        },
+       {
+          "field": "[concat('tags[', parameters('tagName3'), ']')]",
+          "notEquals": "[resourceGroup().tags[parameters('tagName3')]]"
+        },
+        {
+          "value": "[resourceGroup().tags[parameters('tagName3')]]",
+          "notEquals": ""
+        },
+       {
+          "field": "[concat('tags[', parameters('tagName4'), ']')]",
+          "notEquals": "[resourceGroup().tags[parameters('tagName3')]]"
+        },
+        {
+          "value": "[resourceGroup().tags[parameters('tagName4')]]",
+          "notEquals": ""
+        }                 
       ]
     },
     "then": {
@@ -82,19 +180,22 @@
       "metadata": {
         "displayName": "Tag Name2",
         "description": "Name of the tag, such as 'environment'"
-      },
+      }
+    },
       "tagName3": {
       "type": "String",
       "metadata": {
         "displayName": "Tag Name4",
         "description": "Name of the tag, such as 'environment'"
-      },
+      }
+     
+    },
       "tagName4": {
       "type": "String",
       "metadata": {
         "displayName": "Tag Name4",
         "description": "Name of the tag, such as 'environment'"
       }              
-    }  
-  }
+   }
+  }    
 }
