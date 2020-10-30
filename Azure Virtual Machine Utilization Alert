@@ -1,0 +1,68 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Alert-Name": {
+            "defaultValue": "Azure VM Utilization Alert",
+            "type": "String"
+        },
+        "Actiongroups-External-Id": {
+            "defaultValue": "/subscriptions/XXXXX-XXXXX-XXXXX-XXXXX/resourceGroups/rg_azuredocslab/providers/microsoft.insights/actiongroups/myag01",
+            "type": "String"
+        },
+        "Subscription-Id": {
+            "defaultValue": "XXXXX-XXXXX-XXXXX-XXXXX",
+            "type": "String"
+        },
+        "Severity": {
+            "defaultValue": "1",
+            "type": "String"
+        }					
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/metricAlerts",
+            "apiVersion": "2018-03-01",
+            "name": "[parameters('Alert-Name')]",
+            "location": "global",
+            "properties": {
+                "severity":"[parameters('severity')]",
+                "enabled": true,
+                "scopes": [
+                "[concat('/subscriptions/', parameters('Subscription-Id'))]"
+                ],
+                "evaluationFrequency": "PT5M",
+                "windowSize": "PT5M",
+                "criteria": {
+                    "allOf": [
+                        {
+                            "alertSensitivity": "Medium",
+                            "failingPeriods": {
+                                "numberOfEvaluationPeriods": 6,
+                                "minFailingPeriodsToAlert": 4
+                            },
+                            "name": "Metric1",
+                            "metricNamespace": "microsoft.compute/virtualmachines",
+                            "metricName": "Percentage CPU",
+                            "dimensions": [],
+                            "operator": "GreaterThan",
+                            "timeAggregation": "Maximum",
+                            "criterionType": "DynamicThresholdCriterion"
+                        }
+                    ],
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
+                },
+                "autoMitigate": true,
+                "targetResourceType": "microsoft.compute/virtualmachines",
+                "targetResourceRegion": "northeurope",
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('Actiongroups-External-Id')]",
+                        "webHookProperties": {}
+                    }
+                ]
+           }
+        }
+    ]
+}
