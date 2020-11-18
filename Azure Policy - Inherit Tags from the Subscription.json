@@ -1,4 +1,4 @@
-  
+   
 {
     "mode": "Indexed",
     "policyRule": {
@@ -6,90 +6,90 @@
         "allOf": [
           {
             "field": "[concat('tags[', parameters('tagName1'), ']')]",
-            "notEquals": "[resourceGroup().tags[parameters('tagName1')]]"
+            "notEquals": "[subscription().tags[parameters('tagName1')]]"
           },
           {
-            "value": "[resourceGroup().tags[parameters('tagName1')]]",
+            "value": "[subscription().tags[parameters('tagName1')]]",
             "notEquals": ""
           },
           {
             "field": "[concat('tags[', parameters('tagName2'), ']')]",
-            "notEquals": "[resourceGroup().tags[parameters('tagName2')]]"
+            "notEquals": "[subscription().tags[parameters('tagName2')]]"
           },
           {
-            "value": "[resourceGroup().tags[parameters('tagName2')]]",
+            "value": "[subscription().tags[parameters('tagName2')]]",
             "notEquals": ""
           },
          {
             "field": "[concat('tags[', parameters('tagName3'), ']')]",
-            "notEquals": "[resourceGroup().tags[parameters('tagName3')]]"
+            "notEquals": "[subscription().tags[parameters('tagName3')]]"
           },
           {
-            "value": "[resourceGroup().tags[parameters('tagName3')]]",
+            "value": "[subscription().tags[parameters('tagName3')]]",
             "notEquals": ""
           },
          {
             "field": "[concat('tags[', parameters('tagName4'), ']')]",
-            "notEquals": "[resourceGroup().tags[parameters('tagName4')]]"
+            "notEquals": "[subscription().tags[parameters('tagName4')]]"
           },
           {
-            "value": "[resourceGroup().tags[parameters('tagName4')]]",
+            "value": "[subscription().tags[parameters('tagName4')]]",
             "notEquals": ""
           },
           {
               "field": "[concat('tags[', parameters('tagName5'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName5')]]"
+              "notEquals": "[subscription().tags[parameters('tagName5')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName5')]]",
+              "value": "[subscription().tags[parameters('tagName5')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName6'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName6')]]"
+              "notEquals": "[subscription().tags[parameters('tagName6')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName6')]]",
+              "value": "[subscription().tags[parameters('tagName6')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName7'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName7')]]"
+              "notEquals": "[subscription().tags[parameters('tagName7')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName7')]]",
+              "value": "[subscription().tags[parameters('tagName7')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName8'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName8')]]"
+              "notEquals": "[subscription().tags[parameters('tagName8')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName8')]]",
+              "value": "[subscription().tags[parameters('tagName8')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName9'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName9')]]"
+              "notEquals": "[subscription().tags[parameters('tagName9')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName9')]]",
+              "value": "[subscription().tags[parameters('tagName9')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName10'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName10')]]"
+              "notEquals": "[subscription().tags[parameters('tagName10')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName10')]]",
+              "value": "[subscription().tags[parameters('tagName10')]]",
               "notEquals": ""
             },
             {
               "field": "[concat('tags[', parameters('tagName11'), ']')]",
-              "notEquals": "[resourceGroup().tags[parameters('tagName11')]]"
+              "notEquals": "[subscription().tags[parameters('tagName11')]]"
             },
             {
-              "value": "[resourceGroup().tags[parameters('tagName11')]]",
+              "value": "[subscription().tags[parameters('tagName11')]]",
               "notEquals": ""
             }                                                                                                                             
         ]
@@ -240,3 +240,4 @@
       }
     }
   }
+
