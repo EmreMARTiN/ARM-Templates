@@ -1,0 +1,242 @@
+  
+{
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "[concat('tags[', parameters('tagName1'), ']')]",
+            "notEquals": "[resourceGroup().tags[parameters('tagName1')]]"
+          },
+          {
+            "value": "[resourceGroup().tags[parameters('tagName1')]]",
+            "notEquals": ""
+          },
+          {
+            "field": "[concat('tags[', parameters('tagName2'), ']')]",
+            "notEquals": "[resourceGroup().tags[parameters('tagName2')]]"
+          },
+          {
+            "value": "[resourceGroup().tags[parameters('tagName2')]]",
+            "notEquals": ""
+          },
+         {
+            "field": "[concat('tags[', parameters('tagName3'), ']')]",
+            "notEquals": "[resourceGroup().tags[parameters('tagName3')]]"
+          },
+          {
+            "value": "[resourceGroup().tags[parameters('tagName3')]]",
+            "notEquals": ""
+          },
+         {
+            "field": "[concat('tags[', parameters('tagName4'), ']')]",
+            "notEquals": "[resourceGroup().tags[parameters('tagName4')]]"
+          },
+          {
+            "value": "[resourceGroup().tags[parameters('tagName4')]]",
+            "notEquals": ""
+          },
+          {
+              "field": "[concat('tags[', parameters('tagName5'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName5')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName5')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName6'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName6')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName6')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName7'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName7')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName7')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName8'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName8')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName8')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName9'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName9')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName9')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName10'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName10')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName10')]]",
+              "notEquals": ""
+            },
+            {
+              "field": "[concat('tags[', parameters('tagName11'), ']')]",
+              "notEquals": "[resourceGroup().tags[parameters('tagName11')]]"
+            },
+            {
+              "value": "[resourceGroup().tags[parameters('tagName11')]]",
+              "notEquals": ""
+            }                                                                                                                             
+        ]
+      },
+      "then": {
+        "effect": "modify",
+        "details": {
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+          ],
+          "operations": [
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName1'), ']')]",
+              "value": "[subscription().tags[parameters('tagName1')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName2'), ']')]",
+              "value": "[subscription().tags[parameters('tagName2')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName3'), ']')]",
+              "value": "[subscription().tags[parameters('tagName3')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName4'), ']')]",
+              "value": "[subscription().tags[parameters('tagName4')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName5'), ']')]",
+              "value": "[subscription().tags[parameters('tagName5')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName6'), ']')]",
+              "value": "[subscription().tags[parameters('tagName6')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName7'), ']')]",
+              "value": "[subscription().tags[parameters('tagName7')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName8'), ']')]",
+              "value": "[subscription().tags[parameters('tagName8')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName9'), ']')]",
+              "value": "[subscription().tags[parameters('tagName9')]]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName10'), ']')]",
+              "value": "[subscription().tags[parameters('tagName10')]]"
+            },  
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', parameters('tagName11'), ']')]",
+              "value": "[subscription().tags[parameters('tagName11')]]"
+            }                                                  
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "tagName1": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name1",
+          "description": "Name of the tag, such as 'environment'"
+          }
+        },
+        "tagName2": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name2",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+        "tagName3": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name3",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+        "tagName4": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name4",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName5": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name5",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName6": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name6",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName7": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name7",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName8": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name8",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName9": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name9",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      },
+      "tagName10": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name10",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      }, 
+      "tagName11": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name11",
+          "description": "Name of the tag, such as 'environment'"
+         }
+      }
+    }
+  }
